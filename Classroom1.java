@@ -1,30 +1,24 @@
-package week4.day1;
+package week4.day2;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Classroom1 {
-	
+
 	public static void main(String[] args) {
-		
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver=new ChromeDriver();
-		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt");
+		driver.get("https://erail.in");
 		driver.manage().window().maximize();
-		driver.switchTo().frame(0);
-		driver.findElement(By.xpath("//button[(text()='Try it')]")).click();
-		Alert give = driver.switchTo().alert();
-		give.sendKeys("Balavignesh");
-		give.accept();
-
-		String text = driver.findElement(By.id("demo")).getText();
-	System.out.println(text);
-	boolean n=driver.getPageSource().contains(text);
-	System.out.println(n);
+			
+		driver.findElement(By.id("txtStationFrom")).clear();
+		driver.findElement(By.xpath("//div[@title='Chennai Egmore']")).click();
+		
+driver.findElement(By.id("txtStationTo")).clear();		
+driver.findElement(By.xpath("//div[@title='Madurai Jn']")).click();
+driver.findElement(By.id("chkSelectDateOnly")).clear();
+driver.findElement(By.id("buttonFromTo")).click();
 	}
-	
-
 }
